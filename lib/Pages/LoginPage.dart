@@ -4,7 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ikun/Models/UserModel.dart';
 import 'package:ikun/Pages/RegistrationPage.dart';
-import 'package:ikun/Pages/next.dart';
+import 'package:ikun/Pages/imo_next.dart';
+import 'package:ikun/Pages/shg_next.dart';
 import 'package:ikun/shared/custom_button.dart';
 import 'package:ikun/shared/database.dart';
 import 'package:ikun/shared/loading.dart';
@@ -13,6 +14,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   static const String id = 'LoginPage';
+  String Model;
+
+  LoginPage({this.Model});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -93,7 +98,9 @@ class _LoginPageState extends State<LoginPage> {
             padding: EdgeInsets.symmetric(vertical: 10.0),
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/background.png"),
+                  image: AssetImage(widget.Model == 'Imo'
+                      ? "assets/Shg_background.png"
+                      : "assets/Imo_background.png"),
                   fit: BoxFit.cover),
             ),
             child: Scaffold(
@@ -215,7 +222,7 @@ class _LoginPageState extends State<LoginPage> {
                                           Navigator.pushReplacement(
                                             context,
                                             MaterialPageRoute(
-                                              builder: (context) => Next(),
+                                              builder: (context) => Shg_Next(),
                                             ),
                                           );
                                         }
@@ -307,7 +314,10 @@ class _LoginPageState extends State<LoginPage> {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Next(),
+                                        builder: (context) =>
+                                            widget.Model == 'Shg'
+                                                ? Shg_Next()
+                                                : Imo_Next(),
                                       ),
                                     );
                                   }

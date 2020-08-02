@@ -2,19 +2,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:ikun/Pages/LoginPage.dart';
 import 'package:ikun/Pages/newAccount.dart';
+import 'package:ikun/main.dart';
 import 'package:ikun/shared/loading.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Next extends StatefulWidget {
+class Shg_Next extends StatefulWidget {
   static const String id = 'Next';
   @override
-  _NextState createState() => _NextState();
+  _Shg_NextState createState() => _Shg_NextState();
 }
 
-class _NextState extends State<Next> {
+class _Shg_NextState extends State<Shg_Next> {
   FirebaseUser user;
   int Index = 0;
   String fullName;
@@ -603,8 +603,12 @@ class _NextState extends State<Next> {
                                 SharedPreferences prefs =
                                     await SharedPreferences.getInstance();
                                 prefs.setBool('Login', false);
-                                Navigator.of(context)
-                                    .pushReplacementNamed(LoginPage.id);
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => InitialRoute(),
+                                  ),
+                                );
                               },
                               icon: Icon(
                                 // ignore: missing_return

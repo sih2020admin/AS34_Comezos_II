@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ikun/Models/UserModel.dart';
 import 'package:ikun/Pages/LoginPage.dart';
-import 'package:ikun/Pages/next.dart';
+import 'package:ikun/Pages/shg_next.dart';
 import 'package:ikun/shared/custom_button.dart';
 import 'package:ikun/shared/database.dart';
 import 'package:ikun/shared/loading.dart';
@@ -103,7 +103,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             padding: EdgeInsets.symmetric(vertical: 10.0),
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/background.png"),
+                  image: AssetImage("assets/Shg_background.png"),
                   fit: BoxFit.cover),
             ),
             child: Scaffold(
@@ -227,7 +227,8 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                             Navigator.pushReplacement(
                                               context,
                                               MaterialPageRoute(
-                                                builder: (context) => Next(),
+                                                builder: (context) =>
+                                                    Shg_Next(),
                                               ),
                                             );
                                           }
@@ -313,7 +314,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Next(),
+                                        builder: (context) => Shg_Next(),
                                       ),
                                     );
                                   }
